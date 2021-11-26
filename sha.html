@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="./sha256.js"></script>
+    <script type="text/javascript">
+      /**
+       * sha.html
+       *
+       * Author: aKuad
+       *
+       * Published with CC0 license
+       */
+      window.onload = function() {
+        org = "hello";
+        hash = "";
+
+        const obj = new jsSHA("SHA-256", "TEXT");
+        obj.update(org);
+        hash = obj.getHash("HEX");
+
+        document.getElementById("value-original").innerHTML = org;
+        document.getElementById("value-hash").innerText = hash;
+      }
+    </script>
+    <style>
+      body {
+        font-family: monospace;
+        font-size: 12pt;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="value-original"></div>
+    <div id="value-hash"></div>
+  </body>
+</html>
